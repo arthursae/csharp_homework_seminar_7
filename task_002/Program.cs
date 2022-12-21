@@ -7,10 +7,10 @@
 
 // 17 -> такого числа в массиве нет
 
-void Output2DArrayMarkedPosition(int[,] dummy2DArray, int searchRow, int searchColumn)
+void Output2DArrayMarkedPosition(int[,] matrix, int searchRow, int searchColumn)
 {
-    int rows = dummy2DArray.GetLength(0);
-    int columns = dummy2DArray.GetLength(1);
+    int rows = matrix.GetLength(0);
+    int columns = matrix.GetLength(1);
     Console.WriteLine("Искомый элемент выделен квадратными скобками []: \n");
 
     for (int i = 0; i < rows; i++)
@@ -19,11 +19,11 @@ void Output2DArrayMarkedPosition(int[,] dummy2DArray, int searchRow, int searchC
         {
             if (i == searchRow && j == searchColumn)
             {
-                Console.Write("[" + dummy2DArray[i,j] + "]\t");
+                Console.Write("[" + matrix[i,j] + "]\t");
             }
             else
             {
-                Console.Write(dummy2DArray[i,j] + "\t");
+                Console.Write(matrix[i,j] + "\t");
             }
         }
         Console.WriteLine("\n");
@@ -64,18 +64,18 @@ int GetUserInputData(string msg)
 }
 
 Console.Clear();
-int[,] dummy2DArray = Generate2DArray(3, 10, 1, 100);
-int rows = dummy2DArray.GetLength(0);
-int columns = dummy2DArray.GetLength(1);
+int[,] matrix = Generate2DArray(3, 10, 1, 100);
+int rows = matrix.GetLength(0);
+int columns = matrix.GetLength(1);
 Console.WriteLine("Сгенерирован двумерный массив " + rows + "x" + columns + ", заполненный псевдослучайными целыми числами.");
 int searchRow = GetUserInputData("Введите позицию строки от 0 до " + (rows - 1) + ": ");
 int searchColumn = GetUserInputData("Введите позицию столбца от 0 до " + (columns - 1) + ": ");
 
-if (searchRow < dummy2DArray.GetLength(0) && searchColumn < dummy2DArray.GetLength(1))
+if (searchRow < matrix.GetLength(0) && searchColumn < matrix.GetLength(1))
 {
-    int elementValue = dummy2DArray[searchRow, searchColumn];
+    int elementValue = matrix[searchRow, searchColumn];
     Console.WriteLine("Значение элемента, находящегося в " + searchRow + "-й строке и " + searchColumn + "-м cтолбце, равно = " + elementValue);
-    Output2DArrayMarkedPosition(dummy2DArray, searchRow, searchColumn);
+    Output2DArrayMarkedPosition(matrix, searchRow, searchColumn);
 }
 else
 {
