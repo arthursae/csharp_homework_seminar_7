@@ -11,22 +11,32 @@ void Output2DArrayMarkedPosition(int[,] matrix, int searchRow, int searchColumn)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
-    Console.WriteLine("Искомый элемент выделен квадратными скобками []: \n");
 
-    for (int i = 0; i < rows; i++)
+    if (searchRow < matrix.GetLength(0) && searchColumn < matrix.GetLength(1))
     {
-        for (int j = 0; j < columns; j++)
+        int elementValue = matrix[searchRow, searchColumn];
+        //Console.WriteLine("Значение элемента, находящегося в " + searchRow + "-й строке и " + searchColumn + "-м cтолбце, равно = " + elementValue);
+        Console.WriteLine("Позиция искомого элемента выделена квадратными скобками [" + elementValue + "]: \n");
+
+        for (int i = 0; i < rows; i++)
         {
-            if (i == searchRow && j == searchColumn)
+            for (int j = 0; j < columns; j++)
             {
-                Console.Write("[" + matrix[i,j] + "]\t");
+                if (i == searchRow && j == searchColumn)
+                {
+                    Console.Write("[" + matrix[i,j] + "]\t");
+                }
+                else
+                {
+                    Console.Write(matrix[i,j] + "\t");
+                }
             }
-            else
-            {
-                Console.Write(matrix[i,j] + "\t");
-            }
+            Console.WriteLine("\n");
         }
-        Console.WriteLine("\n");
+    }
+    else
+    {
+        Console.WriteLine("Значения позиций элемента находятся за пределами данного массива!");
     }
 }
 
@@ -70,14 +80,4 @@ int columns = matrix.GetLength(1);
 Console.WriteLine("Сгенерирован двумерный массив " + rows + "x" + columns + ", заполненный псевдослучайными целыми числами.");
 int searchRow = GetUserInputData("Введите позицию строки от 0 до " + (rows - 1) + ": ");
 int searchColumn = GetUserInputData("Введите позицию столбца от 0 до " + (columns - 1) + ": ");
-
-if (searchRow < matrix.GetLength(0) && searchColumn < matrix.GetLength(1))
-{
-    int elementValue = matrix[searchRow, searchColumn];
-    Console.WriteLine("Значение элемента, находящегося в " + searchRow + "-й строке и " + searchColumn + "-м cтолбце, равно = " + elementValue);
-    Output2DArrayMarkedPosition(matrix, searchRow, searchColumn);
-}
-else
-{
-    Console.WriteLine("Значения позиций элемента находятся за пределами данного массива!");
-}
+Output2DArrayMarkedPosition(matrix, searchRow, searchColumn);
