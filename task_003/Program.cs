@@ -6,7 +6,7 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-void Output2DArray(int[,] matrix)
+void OutputMatrix(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
@@ -48,7 +48,7 @@ double[] CalcAvgForEachColumn(int[,] matrix)
     return averages;
 }
 
-int[,] Generate2DArray(int minDim, int maxDim, int minRange, int maxRange)
+int[,] GenerateMatrix(int minDim, int maxDim, int minRange, int maxRange)
 {
     int rows = new Random().Next(minDim, maxDim);
     int columns = new Random().Next(minDim, maxDim);
@@ -65,8 +65,8 @@ int[,] Generate2DArray(int minDim, int maxDim, int minRange, int maxRange)
 }
 
 Console.Clear();
-int[,] dummy2DArray = Generate2DArray(3, 10, -99, 100);
-double[] averages = CalcAvgForEachColumn(dummy2DArray);
-Output2DArray(dummy2DArray);
+int[,] matrix = GenerateMatrix(3, 10, -99, 100);
+double[] averages = CalcAvgForEachColumn(matrix);
+OutputMatrix(matrix);
 foreach (double avg in averages) Console.Write(avg + "\t");
 Console.Write("<- среднее арифметическое элементов в каждом столбце \n\n");
