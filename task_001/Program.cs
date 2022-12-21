@@ -5,17 +5,17 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-void OutputMatrix(double[,] dummy2DArray)
+void OutputMatrix(double[,] matrix)
 {
-    int rows = dummy2DArray.GetLength(0);
-    int columns = dummy2DArray.GetLength(1);
+    int rows = matrix.GetLength(0);
+    int columns = matrix.GetLength(1);
     Console.WriteLine("Сгенерирован двумерный массив размером " + rows + "×" + columns + ", заполненный псевдослучайными вещественными числами: \n");
 
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            Console.Write(dummy2DArray[i,j] + "\t");
+            Console.Write(matrix[i,j] + "\t");
         }
         Console.WriteLine("\n");
     }
