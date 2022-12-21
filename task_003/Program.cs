@@ -10,26 +10,32 @@ void OutputMatrix(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
-    Console.WriteLine("Сгенерирован двумерный массив размером " + rows + "×" + columns + ", заполненный псевдослучайными целыми числами: \n");
+    Console.WriteLine(
+        "Сгенерирован двумерный массив размером "
+            + rows
+            + "×"
+            + columns
+            + ", заполненный псевдослучайными целыми числами: \n"
+    );
 
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            Console.Write(matrix[i,j] + "\t");
+            Console.Write(matrix[i, j] + "\t");
         }
         Console.WriteLine("\n");
     }
 }
 
-double[] CalcAvgForEachColumn(int[,] matrix)
+double[] CalculateAverageForEachColumn(int[,] matrix)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
     int sum = 0;
     double avg = 0;
     double[] averages = new double[columns];
-    
+
     for (int i = 0; i < columns; i++)
     {
         for (int j = 0; j < rows; j++)
@@ -52,13 +58,13 @@ int[,] GenerateMatrix(int minDim, int maxDim, int minRange, int maxRange)
 {
     int rows = new Random().Next(minDim, maxDim);
     int columns = new Random().Next(minDim, maxDim);
-    int[,] dummy2DArray = new int[rows,columns];
+    int[,] dummy2DArray = new int[rows, columns];
 
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            dummy2DArray[i,j] = new Random().Next(minRange,maxRange); 
+            dummy2DArray[i, j] = new Random().Next(minRange, maxRange);
         }
     }
     return dummy2DArray;
@@ -66,7 +72,8 @@ int[,] GenerateMatrix(int minDim, int maxDim, int minRange, int maxRange)
 
 Console.Clear();
 int[,] matrix = GenerateMatrix(3, 10, -99, 100);
-double[] averages = CalcAvgForEachColumn(matrix);
+double[] averages = CalculateAverageForEachColumn(matrix);
 OutputMatrix(matrix);
-foreach (double avg in averages) Console.Write(avg + "\t");
+foreach (double avg in averages)
+    Console.Write(avg + "\t");
 Console.Write("<- среднее арифметическое элементов в каждом столбце \n\n");

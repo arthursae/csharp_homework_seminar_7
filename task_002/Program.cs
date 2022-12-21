@@ -16,7 +16,9 @@ void OutputMatrixAndMarkedPosition(int[,] matrix, int searchRow, int searchColum
     {
         int elementValue = matrix[searchRow, searchColumn];
         //Console.WriteLine("Значение элемента, находящегося в " + searchRow + "-й строке и " + searchColumn + "-м cтолбце, равно = " + elementValue);
-        Console.WriteLine("Позиция искомого элемента выделена квадратными скобками [" + elementValue + "]: \n");
+        Console.WriteLine(
+            "Позиция искомого элемента выделена квадратными скобками [" + elementValue + "]: \n"
+        );
 
         for (int i = 0; i < rows; i++)
         {
@@ -24,11 +26,11 @@ void OutputMatrixAndMarkedPosition(int[,] matrix, int searchRow, int searchColum
             {
                 if (i == searchRow && j == searchColumn)
                 {
-                    Console.Write("[" + matrix[i,j] + "]\t");
+                    Console.Write("[" + matrix[i, j] + "]\t");
                 }
                 else
                 {
-                    Console.Write(matrix[i,j] + "\t");
+                    Console.Write(matrix[i, j] + "\t");
                 }
             }
             Console.WriteLine("\n");
@@ -61,13 +63,13 @@ int[,] GenerateMatrix(int minDim, int maxDim, int minRange, int maxRange)
 {
     int rows = new Random().Next(minDim, maxDim);
     int columns = new Random().Next(minDim, maxDim);
-    int[,] dummy2DArray = new int[rows,columns];
+    int[,] dummy2DArray = new int[rows, columns];
 
     for (int i = 0; i < rows; i++)
     {
         for (int j = 0; j < columns; j++)
         {
-            dummy2DArray[i,j] = new Random().Next(minRange,maxRange); 
+            dummy2DArray[i, j] = new Random().Next(minRange, maxRange);
         }
     }
     return dummy2DArray;
@@ -77,7 +79,13 @@ Console.Clear();
 int[,] matrix = GenerateMatrix(3, 10, 1, 100);
 int rows = matrix.GetLength(0);
 int columns = matrix.GetLength(1);
-Console.WriteLine("Сгенерирован двумерный массив " + rows + "x" + columns + ", заполненный псевдослучайными целыми числами.");
+Console.WriteLine(
+    "Сгенерирован двумерный массив "
+        + rows
+        + "x"
+        + columns
+        + ", заполненный псевдослучайными целыми числами."
+);
 int searchRow = GetUserInputData("Введите позицию строки от 0 до " + (rows - 1) + ": ");
 int searchColumn = GetUserInputData("Введите позицию столбца от 0 до " + (columns - 1) + ": ");
 OutputMatrixAndMarkedPosition(matrix, searchRow, searchColumn);
