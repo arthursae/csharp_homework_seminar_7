@@ -41,10 +41,10 @@ double[,] GenerateMatrix(int[] dimData, int min, int max, int roundTo)
 
 int[] GetDimensions()
 {
-    int dimensions = 2;
-    int[] dimData = new int[dimensions];
+    int dim = 2;
+    int[] dimData = new int[dim];
     
-    for (int i = 0; i < dimensions; i++)
+    for (int i = 0; i < dim; i++)
     {
         string id = (i == 0) ? "строк" : "столбцов";
         Console.Write("Введите количество " + id + ": ");
