@@ -40,22 +40,6 @@ void OutputMatrixAndMarkedPosition(int[,] matrix, int searchRow, int searchColum
     }
 }
 
-int[,] Generate2DArray(int minDim, int maxDim, int minRange, int maxRange)
-{
-    int rows = new Random().Next(minDim, maxDim);
-    int columns = new Random().Next(minDim, maxDim);
-    int[,] dummy2DArray = new int[rows,columns];
-
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < columns; j++)
-        {
-            dummy2DArray[i,j] = new Random().Next(minRange,maxRange); 
-        }
-    }
-    return dummy2DArray;
-}
-
 int GetUserInputData(string msg)
 {
     Console.Write(msg);
@@ -73,8 +57,24 @@ int GetUserInputData(string msg)
     }
 }
 
+int[,] GenerateMatrix(int minDim, int maxDim, int minRange, int maxRange)
+{
+    int rows = new Random().Next(minDim, maxDim);
+    int columns = new Random().Next(minDim, maxDim);
+    int[,] dummy2DArray = new int[rows,columns];
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns; j++)
+        {
+            dummy2DArray[i,j] = new Random().Next(minRange,maxRange); 
+        }
+    }
+    return dummy2DArray;
+}
+
 Console.Clear();
-int[,] matrix = Generate2DArray(3, 10, 1, 100);
+int[,] matrix = GenerateMatrix(3, 10, 1, 100);
 int rows = matrix.GetLength(0);
 int columns = matrix.GetLength(1);
 Console.WriteLine("Сгенерирован двумерный массив " + rows + "x" + columns + ", заполненный псевдослучайными целыми числами.");
