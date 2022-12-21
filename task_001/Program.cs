@@ -53,6 +53,7 @@ int[] GetDimensions()
         if (Int32.TryParse(userInput, out _))
         {
             int userData = Convert.ToInt32(userInput);
+            
             if (userData > 0)
             {
                 dimData[i] = userData;
