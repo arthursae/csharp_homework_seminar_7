@@ -5,7 +5,7 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-void Output2DArray(double[,] dummy2DArray)
+void OutputMatrix(double[,] dummy2DArray)
 {
     int rows = dummy2DArray.GetLength(0);
     int columns = dummy2DArray.GetLength(1);
@@ -21,7 +21,7 @@ void Output2DArray(double[,] dummy2DArray)
     }
 }
 
-double[,] Generate2DArray(int[] dimData, int min, int max, int roundTo)
+double[,] GenerateMatrix(int[] dimData, int min, int max, int roundTo)
 {
     int rows = dimData[0], columns = dimData[1];
     double prgn, prgnRounded;
@@ -75,5 +75,5 @@ int[] GetDimensions()
 
 Console.Clear();
 int[] dimData = GetDimensions();
-double[,] dummy2DArray = Generate2DArray(dimData, -10, 10, 2);
-Output2DArray(dummy2DArray);
+double[,] matrix = GenerateMatrix(dimData, -10, 10, 2);
+OutputMatrix(matrix);
