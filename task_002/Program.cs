@@ -7,7 +7,7 @@
 
 // 17 -> такого числа в массиве нет
 
-void Output2DArrayMarkedPosition(int[,] matrix, int searchRow, int searchColumn)
+void OutputMatrixAndMarkedPosition(int[,] matrix, int searchRow, int searchColumn)
 {
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
@@ -80,4 +80,4 @@ int columns = matrix.GetLength(1);
 Console.WriteLine("Сгенерирован двумерный массив " + rows + "x" + columns + ", заполненный псевдослучайными целыми числами.");
 int searchRow = GetUserInputData("Введите позицию строки от 0 до " + (rows - 1) + ": ");
 int searchColumn = GetUserInputData("Введите позицию столбца от 0 до " + (columns - 1) + ": ");
-Output2DArrayMarkedPosition(matrix, searchRow, searchColumn);
+OutputMatrixAndMarkedPosition(matrix, searchRow, searchColumn);
