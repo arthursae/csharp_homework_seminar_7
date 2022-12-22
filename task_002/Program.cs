@@ -12,7 +12,7 @@ void OutputMatrixAndMarkedPosition(int[,] matrix, int searchRow, int searchColum
     int rows = matrix.GetLength(0);
     int columns = matrix.GetLength(1);
 
-    if (searchRow < matrix.GetLength(0) && searchColumn < matrix.GetLength(1))
+    if (searchRow < rows && searchColumn < columns)
     {
         int elementValue = matrix[searchRow, searchColumn];
         //Console.WriteLine("Значение элемента, находящегося в " + searchRow + "-й строке и " + searchColumn + "-м cтолбце, равно = " + elementValue);
